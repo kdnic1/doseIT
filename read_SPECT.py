@@ -1,19 +1,28 @@
-# Python code to
-# demonstrate readlines()
+# Python program to
+# demonstrate readline()
 
 L = ["Geeks\n", "for\n", "Geeks\n"]
 
-# writing to file
+# Writing to a file
 file1 = open('myfile.txt', 'w')
-file1.writelines(L)
+file1.writelines((L))
 file1.close()
 
-# Using readlines()
+# Using readline()
 file1 = open('myfile.txt', 'r')
-Lines = file1.readlines()
-
 count = 0
-# Strips the newline character
-for line in Lines:
+
+while True:
 	count += 1
+
+	# Get next line from file
+	line = file1.readline()
+
+	# if line is empty
+	# end of file is reached
+	if not line:
+		break
 	print("Line{}: {}".format(count, line.strip()))
+
+file1.close()
+
